@@ -2,7 +2,13 @@ const videoElement = document.getElementById('camera-feed');
 const captureButton = document.getElementById('capture-btn');
 const saveButton = document.getElementById('save-btn');
 const canvasElement = document.getElementById('photo-canvas');
+const isMobileDevice = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
 
+const constraints = {
+    video: {
+        facingMode: isMobileDevice ? 'environment' : 'user'
+    }
+};
 // Get user media and set up video stream
 navigator.mediaDevices
     .getUserMedia({ video: true })
@@ -22,13 +28,13 @@ captureButton.addEventListener('click', function () {
 });
 
 // Save the captured photo to local storage
-// saveButton.addEventListener('click', function () {
-//     if (canvasElement.style.display === 'block') {
-//         const imageDataURL = canvasElement.toDataURL('image/png');
-//         localStorage.setItem('capturedPhoto', imageDataURL);
-//         alert('Photo saved to local storage.');
-//         canvasElement.style.display = 'none';
-//     } else {
-//         alert('No photo to save. Capture a photo first.');
-//     }
-// });
+saveButton.addEventListener('click', function () {
+    if (canvasElement.style.display === 'block') {
+        const imageDataURL = canvasElement.toDataURL('image/png');
+        localStorage.setItem('capturedPhoto', imageDataURL);
+        alert('Photo saved to local storage.');
+        canvasElement.style.display = 'none';
+    } else {
+        alert('No photo to save. Capture a photo first.');
+    }
+});
