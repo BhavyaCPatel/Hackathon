@@ -2,16 +2,13 @@ const videoElement = document.getElementById('camera-feed');
 const captureButton = document.getElementById('capture-btn');
 const saveButton = document.getElementById('save-btn');
 const canvasElement = document.getElementById('photo-canvas');
+
+// Check if the device is a mobile device
 const isMobileDevice = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
 
-const constraints = {
-    video: {
-        facingMode: isMobileDevice ? 'environment' : 'user'
-    }
-};
 // Get user media and set up video stream
 navigator.mediaDevices
-    .getUserMedia({ video: true })
+    .getUserMedia({ video: { facingMode: isMobileDevice ? 'environment' : 'user' } })
     .then(function (stream) {
         videoElement.srcObject = stream;
     })
