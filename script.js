@@ -25,13 +25,34 @@ captureButton.addEventListener('click', function () {
 });
 
 // Save the captured photo to local storage
-saveButton.addEventListener('click', function () {
+// ... other code ...
+
+// Save the captured photo to the backend
+saveButton.addEventListener('click', async function () {
     if (canvasElement.style.display === 'block') {
         const imageDataURL = canvasElement.toDataURL('image/png');
-        localStorage.setItem('capturedPhoto', imageDataURL);
-        alert('Photo saved to local storage.');
-        canvasElement.style.display = 'none';
+
+        try {
+            const response = await fetch('/uploadImage', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ imageUrl: imageDataURL })
+            });
+
+            if (response.ok) {
+                alert('Photo saved successfully!');
+                canvasElement.style.display = 'none';
+            } else {
+                alert('Failed to save photo.');
+            }
+        } catch (error) {
+            console.error('Error saving image:', error);
+            alert('An error occurred while saving the photo.');
+        }
     } else {
         alert('No photo to save. Capture a photo first.');
     }
 });
+
