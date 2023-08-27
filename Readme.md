@@ -1,6 +1,5 @@
 # Health Management Information System (HMIS)
 
-[![Website Preview](https://healthmanagementsystem.netlify.app/)]
 Welcome to the Health Management Information System (HMIS)! Our platform is designed to enhance hospital staff workflows by digitizing patient data collection and management.
 
 ## Table of Contents
