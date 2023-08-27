@@ -49,13 +49,59 @@
         <form>
             <input type="file" id="my-file-input" name="file" /><br>
             <button class="btn btn-primary btn-large" id="submit-button">Submit</button>
-        </form>
+        </form><br>
+        <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Fields</th>
+                <th scope="col">Details</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">1</th>
+                <td>Aadhar</td>
+                <td id="aadhar"></td>
+              </tr>
+              <tr>
+                <th scope="row">2</th>
+                <td >Name</td>
+                <td id="name1"></td>
+              </tr>
+              <tr>
+                <th scope="row">3</th>
+                <td >Age</td>
+                <td id="age"></td>
+              </tr>
+              <tr>
+                <th scope="row">4</th>
+                <td >Symptoms</td>
+                <td id="symptoms"></td>
+              </tr>
+              <tr>
+                <th scope="row">5</th>
+                <td >Disease</td>
+                <td id="disease"></td>
+              </tr>
+              <tr>
+                <th scope="row">6</th>
+                <td >Prescription</td>
+                <td id="prescription"></td>
+              </tr>
+              <tr>
+                <th scope="row">7</th>
+                <td >Extra Care</td>
+                <td id="extra_info1"></td>
+              </tr>
+            </tbody>
+          </table>
         <br><br>
     </div>
     <script src="script.js"></script>
     <script type="text/javascript">
         document.getElementById('submit-button').addEventListener('click', mindeeSubmit);
-
+        var hack={}
         async function mindeeSubmit(event) {
             event.preventDefault();
 
@@ -84,7 +130,7 @@
                 if (response.ok) {
                     const jsonResponse = await response.json();
                     const data = jsonResponse;
-                    var hack = {}
+                    // const hack = {};
                     hack['aadhar'] = data.document.inference.pages[0].prediction.aadhar.values[0].content;
                     hack['age'] = data.document.inference.pages[0].prediction.age.values[0].content;
                     hack['symptoms'] = data.document.inference.pages[0].prediction.symptoms.values[0].content;
@@ -104,13 +150,24 @@
                     hack['extra_info1'] = extra_info1;
 
                     console.log(hack);
-                } else {
-                    console.error('Request failed:', response.statusText);
-                }
+            } else {
+                console.error('Request failed:', response.statusText);
+            }
             } catch (error) {
                 console.error('An error occurred:', error);
             }
+            document.getElementById("aadhar").innerHTML=hack["aadhar"]
+            document.getElementById("age").innerHTML=hack["age"]
+            document.getElementById("name1").innerHTML=hack["name"]
+            document.getElementById("prescription").innerHTML=hack["prescription"]
+            document.getElementById("disease").innerHTML=hack["disease"]
+            document.getElementById("symptoms").innerHTML=hack["symptoms"] 
+            document.getElementById("extra_info1").innerHTML=hack["extra_info1"]
         }
+
+    </script>
+    <script  type="text/javascript">
+        
     </script>
     <script type="module">
         const firebaseConfig = {
