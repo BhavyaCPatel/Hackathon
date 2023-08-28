@@ -141,6 +141,8 @@
                     for (const nameObj of data.document.inference.pages[0].prediction.name.values) {
                         name1 += nameObj.content + ' ';
                     }
+                    hack['name'] = name1;
+                    
                     let symptoms1 = '';
                     for (const symObj of data.document.inference.pages[0].prediction.symptoms.values) {
                         symptoms1 += symObj.content + ',';
