@@ -1,7 +1,5 @@
 # Health Management Information System (HMIS)
 
-[![Website Preview](screenshot.png)](https://yourhmiswebsite.com/)
-
 Welcome to the Health Management Information System (HMIS)! Our platform is designed to enhance hospital staff workflows by digitizing patient data collection and management.
 
 ## Table of Contents
@@ -17,7 +15,7 @@ Welcome to the Health Management Information System (HMIS)! Our platform is desi
 
 The Health Management Information System (HMIS) revolutionizes patient data collection and storage in healthcare institutions. Our solution replaces the traditional manual process of recording patient details on preprinted paper forms. Staff members can now easily scan these forms using our web app, store the data in a secure database, and generate a printable table with patient information for easy reference.
 
-Visit [Health Management Information System (HMIS)](https://yourhmiswebsite.com/) to experience the future of efficient hospital operations.
+Visit [Health Management Information System (HMIS)][(https://yourhmiswebsite.com/](https://healthmanagementsystem.netlify.app/)) to experience the future of efficient hospital operations.
 
 ## Features
 
@@ -31,7 +29,7 @@ Visit [Health Management Information System (HMIS)](https://yourhmiswebsite.com/
 
 To get started with the Health Management Information System (HMIS), follow these steps:
 
-1. Visit [https://yourhmiswebsite.com/](https://yourhmiswebsite.com/) to access the application.
+1. Visit [https://healthmanagementsystem.netlify.app/](https://healthmanagementsystem.netlify.app/) to access the application.
 2. Provide necessary permissions for accessing the device's camera (for scanning paper forms).
 3. Follow the on-screen instructions to scan and save patient data.
 4. Explore the user-friendly dashboard for viewing and managing stored patient information.
